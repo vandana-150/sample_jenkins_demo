@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    environment {
+       abc='Jenkins'
+       efg='Hi'
+    }
+    stages {
+      stage('Stage1') {
+            when {
+              anyOf {
+                environment name: 'abc' , value: 'Jenkins'
+                environment name: 'efg' , value: 'Hello'
+              }
+            }
+           steps {
+              sh 'echo HELLO'
+           }
+        }
+    }
+}
