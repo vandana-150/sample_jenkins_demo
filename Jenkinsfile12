@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    parameters {
+       string(name: 'fname', defaultValue: 'Jenkins', description: '')
+       choice(name: 'city', choices: ['one','two','three'], description: '')
+    }
+    stages {
+      stage('Stage1') {
+           steps {
+              sh 'echo $fname'
+              sh 'echo $city'
+           }
+        }
+    }
+}
