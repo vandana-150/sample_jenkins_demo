@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+    stages {
+        stage('Stage1') {
+          environment {
+             creds = credentials("CRED")
+          }
+           steps {
+              sh 'echo Hello $creds_USR'
+              sh 'echo Hello $creds_PSW'
+           }
+        }
+    }
+}
