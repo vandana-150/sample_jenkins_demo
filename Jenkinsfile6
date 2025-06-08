@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-       fname: 'Jenkins'
+       fname='Jenkins'
     }
     stages {
         stage('Stage1') {
