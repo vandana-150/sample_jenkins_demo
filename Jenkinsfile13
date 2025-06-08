@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    environment {
+       abc='Jenkins'
+    }
+    stages {
+      stage('Stage1') {
+            when {
+               environment name: 'abc' , value: 'Jenkins'
+            }
+           steps {
+              sh 'echo HELLO'
+           }
+        }
+    }
+}
