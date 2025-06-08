@@ -6,12 +6,12 @@ pipeline {
     stages {
         stage('Stage1') {
            steps {
-              echo 'Hello1 ${fname}'
+              echo 'Hello1 $fname'
            }
         }
         stage('Stage2') {
             steps {
-                echo 'Hello2 ${fname}'
+                echo 'Hello2 $fname'
             }
         }
     }
