@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    stages {
+        stage('Stage1') {
+          environment {
+             fname='Jenkins'
+          }
+           steps {
+              sh 'echo Hello1 $fname'
+           }
+        }
+        stage('Stage2') {
+            steps {
+                sh 'echo Hello2 $fname'
+            }
+        }
+    }
+}
