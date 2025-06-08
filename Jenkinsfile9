@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+    options {
+      retry(3)
+    }
+    stages {
+        stage('Stage1') {
+           steps {
+               error('ERROR')
+           }
+        }
+    }
+}
