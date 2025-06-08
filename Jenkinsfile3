@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'python3 -V'
+            }
+        }
+        stage('Regression Test') {
+            steps {
+                parallel (
+                   chrome: {
+                     sh 'echo running tests on Chrome'
+                   },
+                   firefox: {
+                      sh 'echo running tests on Firefox'
+                   },
+                   safari: {
+                      sh 'echo running tests on Safari'
+                   }
+                )
+            }
+        }
+    }
+   post {
+       always {
+          echo 'ALWAYS'
+       }
+      success {
+         echo 'SUCCESS'
+      }
+      failure {
+          echo 'FAILURE'
+      }
+      unstable {
+          echo 'Only if run is UNSTABLE'
+      }
+      changed {
+          echo 'Only is status changed from SUCCESS to FAILURE or vice versa w.r.t last run'
+      }
+   }
+}
